@@ -1,69 +1,63 @@
-# React + TypeScript + Vite
+# NLW Agents
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é o projeto **NLW Agents**, desenvolvido durante o evento **Next Level Week (NLW)** promovido pela [Rocketseat](https://www.rocketseat.com.br/). A aplicação é uma interface web construída com foco em gerenciamento de usuários (agents), utilizando tecnologias modernas do ecossistema JavaScript/TypeScript.
 
-Currently, two official plugins are available:
+## 🔧 Tecnologias Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Phosphor React](https://phosphoricons.com/)
+- [React Hook Form](https://react-hook-form.com/)
+- [Zod](https://zod.dev/)
 
-## Expanding the ESLint configuration
+## 🧩 Padrões e Organização
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Componentização**: Separação clara entre componentes reutilizáveis e específicos.
+- **Validação com Zod**: Schema validation acoplado ao React Hook Form.
+- **Estilização com Tailwind**: Utility-first CSS diretamente nas classes dos elementos.
+- **Tipagem com TypeScript**: Segurança e previsibilidade no desenvolvimento.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🚀 Como executar o projeto
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### Pré-requisitos
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- [Node.js](https://nodejs.org/en/) (recomendado: v18+)
+- [Yarn](https://yarnpkg.com/) ou [npm](https://www.npmjs.com/)
+
+### Instalação e execução
+
+```bash
+# Clone o repositório
+git clone https://github.com/GustavoHammes/NLW-agents-Rocketseat.git
+cd NLW-agents-Rocketseat/web
+
+# Instale as dependências
+npm install
+# ou
+yarn install
+
+# Inicie o servidor de desenvolvimento
+npm run dev
+# ou
+yarn dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+A aplicação estará disponível em `http://localhost:5173`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📁 Estrutura principal
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+web/
+├── src/
+│   ├── components/       # Componentes reutilizáveis
+│   ├── pages/            # Páginas principais
+│   ├── lib/              # Helpers e schemas
+│   ├── App.tsx           # Componente raiz
+│   └── main.tsx          # Ponto de entrada da aplicação
+```
+
+---
+
+> Projeto criado com fins educacionais durante o NLW da Rocketseat 🚀
