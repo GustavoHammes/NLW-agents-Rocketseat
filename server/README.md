@@ -17,35 +17,44 @@
 ![Badge](https://img.shields.io/badge/ORM-Drizzle-cyan?style=for-the-badge)
 ![Badge](https://img.shields.io/badge/Banco_de_Dados-PostgreSQL-blue?style=for-the-badge&logo=postgresql)
 
+<div align="center">
+  <a href="./README.md">🇧🇷 Português</a>
+  <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+  <a href="./README.en.md">🇺🇸 English</a>
+</div>
+
 ---
 
 ## 📖 Sobre o Projeto
 
-Este projeto é o backend (servidor) da aplicação **NLW Agents**. Ele é responsável por gerenciar toda a lógica de negócio, servir os dados para o frontend e se comunicar com o banco de dados. Construído com uma stack moderna de Node.js, ele foi projetado para ser robusto, eficiente e escalável.
+Este projeto é o backend da aplicação **NLW Agents**. Ele é responsável por gerenciar a lógica de negócio, servir dados para o frontend, e se comunicar com o banco de dados e a API do Gemini para funções de IA.
 
 ---
 
 ## 🛠️ Tecnologias
 
--   **Framework:** **[Fastify](https://fastify.dev/)** - Um framework web de alta performance e baixo overhead para Node.js.
--   **ORM:** **[Drizzle ORM](https://orm.drizzle.team/)** - Um ORM TypeScript "headless" que oferece segurança de tipos e uma excelente experiência de desenvolvimento para interagir com o banco de dados.
--   **Banco de Dados:** **[PostgreSQL](https://www.postgresql.org/)** com a extensão **[pgvector](https://github.com/pgvector/pgvector)** para operações de busca por similaridade de vetores.
--   **Validação:** **[Zod](https://zod.dev/)** - Utilizado para validação de schemas, garantindo a integridade dos dados nas rotas e nas variáveis de ambiente.
--   **Containerização:** **[Docker](https://www.docker.com/)** e **[Docker Compose](https://docs.docker.com/compose/)** para gerenciar o ambiente do banco de dados de forma isolada e consistente.
+-   **Framework:** **[Fastify](https://fastify.dev/)** - Framework web de alta performance para Node.js.
+-   **ORM:** **[Drizzle ORM](https://orm.drizzle.team/)** - ORM TypeScript moderno e seguro.
+-   **Banco de Dados:** **[PostgreSQL](https://www.postgresql.org/)** com a extensão **[pgvector](https://github.com/pgvector/pgvector)** para busca por similaridade.
+-   **Inteligência Artificial:** **[Google Gemini API](https://ai.google.dev/)** para transcrição de áudio, geração de embeddings e respostas.
+-   **Validação:** **[Zod](https://zod.dev/)** para validação de schemas de rotas e variáveis de ambiente.
+-   **Containerização:** **[Docker](https://www.docker.com/)** e **[Docker Compose](https://docs.docker.com/compose/)** para o ambiente do banco de dados.
 -   **Linguagem e Tooling:**
-    -   **[TypeScript](https://www.typescriptlang.org/)**: Garante um código mais seguro e manutenível.
-    -   **[Biome](https://biomejs.dev/)**: Ferramenta integrada para formatação e linting de código.
+    -   **[TypeScript](https://www.typescriptlang.org/)**
+    -   **[Biome](https://biomejs.dev/)** para formatação e linting.
 
 ---
 
 ## 🗺️ Rotas da API
 
-Abaixo estão as rotas implementadas na API até o momento:
-
-| Método | Endpoint | Descrição da Rota                                                               |
-| :----- | :------- | :------------------------------------------------------------------------------ |
-| `GET`  | `/health`| Rota para verificação de saúde do servidor. Retorna um status `200 OK`.          |
-| `GET`  | `/rooms` | Retorna uma lista com todas as salas (`rooms`) cadastradas no banco de dados. |
+| Método | Endpoint                      | Descrição da Rota                                                              |
+| :----- | :---------------------------- | :----------------------------------------------------------------------------- |
+| `GET`  | `/health`                     | Rota de verificação de saúde do servidor.                                      |
+| `GET`  | `/rooms`                      | Retorna uma lista com todas as salas e a contagem de perguntas.                |
+| `POST` | `/rooms`                      | Cria uma nova sala com nome e descrição.                                  |
+| `GET`  | `/rooms/:roomId/questions`    | Retorna as perguntas de uma sala específica, ordenadas pela mais recente.   |
+| `POST` | `/rooms/:roomId/questions`    | Cria uma pergunta, busca chunks de áudio similares e gera uma resposta com IA. |
+| `POST` | `/rooms/:roomId/audio`        | Faz o upload de um áudio, transcreve, gera embeddings e salva no banco. |
 
 ---
 
@@ -53,14 +62,13 @@ Abaixo estão as rotas implementadas na API até o momento:
 
 ### Pré-requisitos
 
--   **[Node.js](https://nodejs.org/en/)** (versão 20.x ou superior)
+-   **[Node.js](https://nodejs.org/en/)** (v20 ou superior)
 -   **[Docker](https://www.docker.com/)** e **[Docker Compose](https://docs.docker.com/compose/)**
 
 ### Passos
 
-1.  **Clone o repositório e acesse a pasta:**
+1.  **Acesse a pasta `server`:**
     ```bash
-    git clone [https://github.com/GustavoHammes/NLW-agents-Rocketseat.git](https://github.com/GustavoHammes/NLW-agents-Rocketseat.git)
     cd NLW-agents-Rocketseat/server
     ```
 
@@ -70,35 +78,30 @@ Abaixo estão as rotas implementadas na API até o momento:
     ```
 
 3.  **Configure as variáveis de ambiente:**
-    -   Copie o arquivo `.env.example` para um novo arquivo chamado `.env`.
+    -   Copie `.env.example` para `.env` e adicione sua `GEMINI_API_KEY`.
         ```bash
         cp .env.example .env
         ```
-    -   *As variáveis padrão já estão prontas para o ambiente Docker local.*
 
 4.  **Inicie o banco de dados com Docker:**
-    -   Este comando irá criar e iniciar o container PostgreSQL em background.
     ```bash
     docker-compose up -d
     ```
 
 5.  **Execute as migrações e popule o banco:**
-    -   O Drizzle Kit gerencia o schema do banco. O script `db:seed` aplica as migrações e insere dados iniciais.
     ```bash
     npm run db:seed
     ```
-    -   *Para gerar novas migrações, use: `npx drizzle-kit generate`.*
 
 6.  **Execute o servidor:**
-    -   O servidor iniciará em modo de desenvolvimento com auto-reload.
     ```bash
     npm run dev
     ```
 
-O servidor estará pronto para receber requisições em **`http://localhost:3333`**.
+O servidor estará disponível em **`http://localhost:3333`**.
 
 ---
 
 <div align="center">
-  Feito com ❤️ por Gustavo Hammes durante a NLW da Rocketseat.
+  Feito com ❤️ por <strong>Gustavo Hammes</strong> durante a NLW da Rocketseat.
 </div>

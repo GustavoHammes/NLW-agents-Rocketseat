@@ -7,7 +7,7 @@
 
 <p align="center">
   <a href="#-sobre-o-projeto">Sobre</a> •
-  <a href="#-principais-recursos-e-tecnologias">Recursos</a> •
+  <a href="#-tecnologias">Recursos</a> •
   <a href="#-setup-e-execução">Execução</a> •
   <a href="#-estrutura-de-pastas">Estrutura</a>
 </p>
@@ -17,25 +17,34 @@
 ![Badge](https://img.shields.io/badge/Linguagem-TypeScript-blue?style=for-the-badge&logo=typescript)
 ![Badge](https://img.shields.io/badge/Estilização-Tailwind_CSS-cyan?style=for-the-badge&logo=tailwindcss)
 
+<div align="center">
+  <a href="./README.md">🇧🇷 Português</a>
+  <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+  <a href="./README.en.md">🇺🇸 English</a>
+</div>
+
 ---
 
 ## 📖 Sobre o Projeto
 
-Este é o frontend da aplicação **NLW Agents**. Trata-se de uma interface web moderna e reativa, construída para consumir a API do servidor e proporcionar uma experiência de usuário fluida para o gerenciamento de "agentes". O projeto aplica conceitos de componentização, gerenciamento de estado e validação de dados no lado do cliente.
+Este é o frontend da aplicação **NLW Agents**. Trata-se de uma interface web moderna e reativa, construída para consumir a API do servidor e proporcionar uma experiência de usuário fluida para interagir com a IA.
 
 ---
 
-## ✨ Principais Recursos e Tecnologias
+## ✨ Tecnologias
 
 A interface foi construída utilizando uma stack moderna e produtiva:
 
--   **[React](https://reactjs.org/)**: Biblioteca para criar interfaces de usuário componentizadas e declarativas.
--   **[Vite](https://vitejs.dev/)**: Ferramenta de build de alta performance que oferece um ambiente de desenvolvimento rápido com Hot Module Replacement (HMR).
--   **[TypeScript](https://www.typescriptlang.org/)**: Adiciona segurança de tipos ao JavaScript, prevenindo bugs e melhorando a manutenibilidade do código.
--   **[Tailwind CSS](https://tailwindcss.com/)**: Framework CSS utility-first para estilização ágil e customizável diretamente no JSX.
--   **[React Hook Form](https://react-hook-form.com/)**: Gerenciamento de formulários otimizado e de fácil integração.
--   **[Zod](https://zod.dev/)**: Utilizado em conjunto com o React Hook Form para realizar a validação de schemas, garantindo que os dados inseridos pelo usuário sejam válidos antes de serem enviados à API.
--   **[Phosphor React](https://phosphoricons.com/)**: Biblioteca de ícones leves e consistentes para a interface.
+-   **[React](https://reactjs.org/)**: Biblioteca para criar interfaces de usuário componentizadas.
+-   **[React Router DOM](https://reactrouter.com/)**: Para gerenciamento de rotas na aplicação.
+-   **[Vite](https://vitejs.dev/)**: Ferramenta de build de alta performance com Hot Module Replacement (HMR).
+-   **[TypeScript](https://www.typescriptlang.org/)**: Adiciona segurança de tipos ao JavaScript.
+-   **[Tailwind CSS](https://tailwindcss.com/)**: Framework CSS utility-first para estilização ágil.
+-   **[TanStack Query (React Query)](https://tanstack.com/query/latest)**: Gerenciamento de estado de servidor, cache e requisições assíncronas.
+-   **[React Hook Form](https://react-hook-form.com/)**: Gerenciamento de formulários otimizado.
+-   **[Zod](https://zod.dev/)**: Validação de schemas para os formulários.
+-   **[Lucide React](https://lucide.dev/)**: Biblioteca de ícones para a interface.
+-   **[Day.js](https://day.js.org/)**: Para manipulação e formatação de datas.
 
 ---
 
@@ -43,56 +52,47 @@ A interface foi construída utilizando uma stack moderna e produtiva:
 
 ### Pré-requisitos
 
--   **[Node.js](https://nodejs.org/en/)** (versão 18.x ou superior)
+-   **[Node.js](https://nodejs.org/en/)** (v20 ou superior)
 -   **[Yarn](https://yarnpkg.com/)** ou **[npm](https://www.npmjs.com/)**
 
 ### Passos para Instalação
 
-1.  **Clone o repositório e acesse a pasta `web`:**
+1.  **Acesse a pasta `web`:**
     ```bash
-    git clone [https://github.com/GustavoHammes/NLW-agents-Rocketseat.git](https://github.com/GustavoHammes/NLW-agents-Rocketseat.git)
     cd NLW-agents-Rocketseat/web
     ```
 
 2.  **Instale as dependências:**
     ```bash
-    # Usando npm
     npm install
-
-    # Ou usando Yarn
-    yarn install
     ```
 
 3.  **Execute a aplicação:**
-    -   Este comando iniciará o servidor de desenvolvimento do Vite.
     ```bash
-    # Usando npm
     npm run dev
-
-    # Ou usando Yarn
-    yarn dev
     ```
 
 A aplicação estará disponível em **`http://localhost:5173`**.
 
-> **⚠️ Importante:** Para que a interface funcione corretamente e possa buscar os dados, o **servidor (backend)** do projeto precisa estar em execução.
+> **⚠️ Importante:** Para que a interface funcione corretamente, o **servidor (backend)** do projeto precisa estar em execução.
 
 ---
 
 ## 📁 Estrutura de Pastas
 
-A organização dos arquivos no diretório `src` segue uma estrutura modular para facilitar a manutenção:
+A organização dos arquivos no diretório `src` segue uma estrutura modular:
 ```
 src/
-├── components/       # Componentes reutilizáveis (botões, inputs, etc.)
-├── pages/            # Páginas da aplicação
-├── lib/              # Funções auxiliares e schemas de validação (Zod)
-├── App.tsx           # Componente raiz da aplicação
-└── main.tsx          # Ponto de entrada, onde o React é renderizado
+├── app.tsx                 # Componente principal com rotas
+├── components/             # Componentes reutilizáveis (UI e de formulários)
+├── http/                   # Hooks e tipos para requisições à API
+├── lib/                    # Utilitários (cn, dayjs)
+├── pages/                  # Páginas da aplicação
+└── main.tsx                # Ponto de entrada do React
 ```
 
 ---
 
 <div align="center">
-  Feito com ❤️ por Gustavo Hammes durante a NLW da Rocketseat.
+  Feito com ❤️ por <strong>Gustavo Hammes</strong> durante a NLW da Rocketseat.
 </div>
