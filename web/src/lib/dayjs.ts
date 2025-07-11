@@ -1,8 +1,8 @@
 import lib from 'dayjs';
 import 'dayjs/locale/pt-BR';
-import relativeTIme from 'dayjs/plugin/relativeTime';
+import relativeTime from 'dayjs/plugin/relativeTime';
 
 lib.locale('pt-BR');
-lib.extend(relativeTIme);
+lib.extend(relativeTime);
 
 export const dayjs = lib;

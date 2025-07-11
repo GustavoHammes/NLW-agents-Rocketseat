@@ -1,3 +1,3 @@
-export type CreateRoomResposne = {
+export type CreateRoomResponse = {
   roomId: string;
 };
