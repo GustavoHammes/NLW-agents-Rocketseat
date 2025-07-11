@@ -8,5 +8,5 @@ export const questions = pgTable('questions', {
     .notNull(),
   question: text().notNull(),
   answer: text(),
-  createdAT: timestamp().defaultNow().notNull(),
+  createdAt: timestamp().defaultNow().notNull(),
 });

@@ -22,11 +22,11 @@ export const getRoomQuestion: FastifyPluginCallbackZod = (app) => {
           id: schema.questions.id,
           question: schema.questions.question,
           answer: schema.questions.answer,
-          createdAt: schema.questions.createdAT,
+          createdAt: schema.questions.createdAt,
         })
         .from(schema.questions)
         .where(eq(schema.questions.roomId, roomId))
-        .orderBy(desc(schema.questions.createdAT));
+        .orderBy(desc(schema.questions.createdAt));
 
       return result;
     }

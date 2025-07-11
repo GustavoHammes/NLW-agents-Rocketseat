@@ -15,6 +15,13 @@
       "when": 1752167478700,
       "tag": "0001_careful_piledriver",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1752204986043,
+      "tag": "0002_tricky_tempest",
+      "breakpoints": true
     }
   ]
 }
