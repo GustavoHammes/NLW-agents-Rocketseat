@@ -1,63 +1,94 @@
 <div align="center">
+  <a href="https://www.rocketseat.com.br/eventos/nlw" target="_blank">
+    <img src="https://github.com/user-attachments/assets/f58c441f-7366-4b5d-abfe-2415af721737" width="800" alt="NLW Agents Logo" width="200" />
+  </a>
   <h1 align="center">NLW Agents 🚀</h1>
   <p align="center">
-    Projeto full-stack desenvolvido durante a <strong>Next Level Week (NLW)</strong> da Rocketseat.
+    Projeto full-stack desenvolvido durante a <strong>Next Level Week (NLW) Agents</strong> da Rocketseat, que ocorreu entre os dias 7 e 10 de Julho.
+    <br>
+    <a href="#-sobre-o-projeto">Sobre</a> •
+    <a href="#-tecnologias">Tecnologias</a> •
+    <a href="#-rotas-da-api">Rotas da API</a> •
+    <a href="#-começando">Começando</a> •
+    <a href="#-licença">Licença</a>
+  </p>
+  <p align="center">
+    <a href="https://app.rocketseat.com.br/certificates/44817ebf-e9fd-4275-b6be-e2f3fba58421" target="_blank">
+      <img src="https://img.shields.io/badge/Certificado-Ver%20Aqui-blue?style=for-the-badge" alt="Certificado">
+    </a>
   </p>
 </div>
 
-<p align="center">
-  <a href="#-sobre-o-projeto">Sobre</a> •
-  <a href="#-tecnologias">Tecnologias</a> •
-  <a href="#-começando">Começando</a> •
-  <a href="#-licença">Licença</a>
-</p>
-
-![Badge](https://img.shields.io/badge/Tecnologia-React-blue?style=for-the-badge&logo=react)
-![Badge](https://img.shields.io/badge/Tecnologia-Node.js-green?style=for-the-badge&logo=nodedotjs)
-![Badge](https://img.shields.io/badge/Tecnologia-TypeScript-blue?style=for-the-badge&logo=typescript)
-![Badge](https://img.shields.io/badge/Estilização-Tailwind_CSS-cyan?style=for-the-badge&logo=tailwindcss)
-![Badge](https://img.shields.io/badge/Licença-MIT-yellow?style=for-the-badge)
+<div align="center">
+  <a href="./README.md">🇧🇷 Português</a>
+  <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+  <a href="./README.en.md">🇺🇸 English</a>
+</div>
 
 ---
 
 ## 📖 Sobre o Projeto
 
-O **NLW Agents** é uma aplicação completa (Frontend e Backend) criada para gerenciar "agentes" e suas interações. O projeto foi desenvolvido durante o evento **Next Level Week** da [Rocketseat](https://www.rocketseat.com.br/), com o objetivo de aplicar conceitos modernos de desenvolvimento web, desde a estruturação da interface com React até a criação de uma API robusta com Node.js.
+O **NLW Agents** é uma aplicação completa (Frontend e Backend) criada para gerenciar "agentes" e suas interações, utilizando IA para transcrição de áudio e geração de respostas. O projeto foi desenvolvido durante o evento **Next Level Week** da [Rocketseat](https://www.rocketseat.com.br/), com o objetivo de aplicar conceitos modernos de desenvolvimento web.
 
 ### ✨ Principais Funcionalidades
 
--   **Interface Web**: Construída com React e Vite para uma experiência de usuário rápida e reativa.
--   **API RESTful**: Servidor backend desenvolvido com Fastify, garantindo alta performance.
--   **Banco de Dados**: Interação com PostgreSQL através do Drizzle ORM.
--   **Validação de Dados**: Uso de Zod tanto no frontend (com React Hook Form) quanto no backend para garantir a integridade dos dados.
--   **Ambiente Containerizado**: Uso do Docker para inicializar o banco de dados, facilitando a configuração do ambiente de desenvolvimento.
+-   **Interface Web Reativa**: Construída com React, Vite e TypeScript para uma experiência de usuário moderna.
+-   **API Robusta**: Servidor backend desenvolvido com Node.js e Fastify, garantindo alta performance.
+-   **Banco de Dados com IA**: Interação com PostgreSQL e a extensão `pgvector` para buscas de similaridade.
+-   **Inteligência Artificial com Gemini**: Utilização da API do Google Gemini para transcrição de áudio, geração de embeddings e respostas inteligentes.
+-   **Validação de Dados**: Uso de Zod para garantir a integridade dos dados de ponta a ponta.
+-   **Ambiente Containerizado**: Uso do Docker para inicializar o banco de dados, facilitando a configuração.
+
+---
 
 ## 🛠️ Tecnologias
 
-O projeto é dividido em duas partes principais:
+O projeto é dividido em duas partes principais, utilizando as seguintes tecnologias:
 
 ### **Frontend (web)**
 
--   **[React](https://reactjs.org/)**: Biblioteca para construir a interface de usuário.
--   **[Vite](https://vitejs.dev/)**: Ferramenta de build extremamente rápida para o desenvolvimento frontend.
--   **[TypeScript](https://www.typescriptlang.org/)**: Superset do JavaScript que adiciona tipagem estática.
--   **[Tailwind CSS](https://tailwindcss.com/)**: Framework CSS utility-first para estilização rápida.
--   **[React Hook Form](https://react-hook-form.com/)**: Gerenciamento de formulários de forma performática.
--   **[Zod](https://zod.dev/)**: Validação de schemas de dados.
+-   **[React](https://reactjs.org/)** e **[React Router DOM](https://reactrouter.com/)**
+-   **[Vite](https://vitejs.dev/)** como build tool
+-   **[TypeScript](https://www.typescriptlang.org/)**
+-   **[Tailwind CSS](https://tailwindcss.com/)** para estilização
+-   **[TanStack Query](https://tanstack.com/query/latest)** para gerenciamento de estado assíncrono
+-   **[React Hook Form](https://react-hook-form.com/)** e **[Zod](https://zod.dev/)** para formulários e validação
+-   **[Lucide React](https://lucide.dev/)** para ícones
 
 ### **Backend (server)**
 
--   **[Node.js](https://nodejs.org/en)**: Ambiente de execução do servidor.
--   **[Fastify](https://www.fastify.io/)**: Framework web focado em performance.
--   **[Drizzle ORM](https://orm.drizzle.team/)**: ORM moderno para interagir com o banco de dados.
--   **[PostgreSQL](https://www.postgresql.org/)**: Banco de dados relacional.
--   **[Docker](https://www.docker.com/)**: Plataforma para criar e gerenciar containers.
+-   **[Node.js](https://nodejs.org/en)**
+-   **[Fastify](https://www.fastify.io/)** como framework web
+-   **[Drizzle ORM](https://orm.drizzle.team/)** para interação com o banco de dados
+-   **[PostgreSQL](https://www.postgresql.org/)** com **[pgvector](https://github.com/pgvector/pgvector)**
+-   **[Google Gemini API](https://ai.google.dev/)** para IA
+-   **[Docker](https://www.docker.com/)** e **Docker Compose**
+-   **[Zod](https://zod.dev/)** para validação de dados e variáveis de ambiente
+
+---
+
+## 🗺️ Rotas da API
+
+| Método | Endpoint                      | Descrição da Rota                                       |
+| :----- | :---------------------------- | :------------------------------------------------------ |
+| `GET`  | `/health`                     | Verifica a saúde do servidor.                           |
+| `GET`  | `/rooms`                      | Lista todas as salas cadastradas.                       |
+| `POST` | `/rooms`                      | Cria uma nova sala.                                     |
+| `GET`  | `/rooms/:roomId/questions`    | Lista todas as perguntas de uma sala específica.        |
+| `POST` | `/rooms/:roomId/questions`    | Cria uma nova pergunta em uma sala.                     |
+| `POST` | `/rooms/:roomId/audio`        | Realiza o upload de um áudio para uma sala.             |
+
+---
 
 ## 🚀 Começando
 
-Para executar o projeto, você precisará clonar o repositório e configurar tanto o **servidor** quanto a **interface web**.
+Para executar o projeto, siga os passos detalhados nos `README.md` de cada pasta:
 
-### Pré-requisitos
+-   **[Backend (server/README.md)](./server/README.md)**
+-   **[Frontend (web/README.md)](./web/README.md)**
+
+### Pré-requisitos Gerais
 
 -   [Node.js](https://nodejs.org/en/) (v20 ou superior)
 -   [Docker](https://www.docker.com/products/docker-desktop/)
@@ -65,58 +96,7 @@ Para executar o projeto, você precisará clonar o repositório e configurar tan
 
 ---
 
-### 📦 **Backend (Server)**
-
-Siga os passos para configurar o servidor:
-
-```bash
-# 1. Navegue para a pasta do servidor
-cd NLW-agents-Rocketseat/server
-
-# 2. Instale as dependências
-npm install
-
-# 3. Inicie o container do banco de dados com Docker
-docker-compose up -d
-
-# 4. Crie o arquivo .env a partir do exemplo e configure a DATABASE_URL
-# (O valor padrão já deve funcionar com o docker-compose)
-cp .env.example .env
-
-# 5. Execute as migrations e popule o banco
-npm run db:seed
-
-# 6. Inicie o servidor de desenvolvimento
-npm run dev
-```
-
-O servidor estará disponível em `http://localhost:3333`.
-
----
-
-### 🖥️ **Frontend (Web)**
-
-Em um novo terminal, siga os passos para configurar a interface:
-
-```bash
-# 1. Navegue para a pasta da web
-cd NLW-agents-Rocketseat/web
-
-# 2. Instale as dependências
-npm install
-
-# 3. Inicie o servidor de desenvolvimento
-npm run dev
-```
-
-A aplicação web estará disponível em `http://localhost:5173`.
-
-## 📜 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
----
 
 <div align="center">
-  Feito com ❤️ por Gustavo Hammes durante a NLW da Rocketseat.
+  Feito com ❤️ por <strong>Gustavo Hammes</strong> durante a NLW da Rocketseat.
 </div>
